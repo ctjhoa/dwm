@@ -1,7 +1,8 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const char font[]            = "-*-xbmicons-medium-r-*-*-12-*-*-*-*-*-*-*";
+static const char font[] = "-*-xbmicons-medium-r-*-*-12-*-*-*-*-*-*-*" ","
+                           "-*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*";
 static const char normbordercolor[] = "#444444";
 static const char normbgcolor[]     = "#222222";
 static const char normfgcolor[]     = "#bbbbbb";
@@ -14,13 +15,25 @@ static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = True;     /* False means bottom bar */
 
 /* tagging */
-static const char *tags[] = { "\uE000", "\uE001", "\uE002", "\uE003", "\uE008",
-	                      "\uE004", "\uE005", "\uE006", "\uE007 " };
+static const char *tags[] = { "\uE002", "\uE000", "\uE003", "\uE001", "\uE005",
+	                      "\uE004", "\uE008", "\uE006", "\uE007 " };
 
 static const Rule rules[] = {
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            True,        -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       False,       -1 },
+  /* class                     instance    title       tags mask     isfloating   monitor */
+  { "st",                      NULL,          NULL,            0,       False,       -1 },
+  { "URxvt",                   NULL,          NULL,            0,       False,       -1 },
+  { "Firefox",                 NULL,          NULL,       1 << 1,       False,       -1 },
+  { "Chromium",                NULL,          NULL,       1 << 1,       False,       -1 },
+  { "Emacs",                   NULL,          NULL,       1 << 2,       False,       -1 },
+  { "Eclipse",                 NULL,          NULL,       1 << 2,       False,       -1 },
+  { "libreoffice-calc",        NULL,          NULL,       1 << 4,       False,       -1 },
+  { "libreoffice-impress",     NULL,          NULL,       1 << 4,       False,       -1 },
+  { "libreoffice-startcenter", NULL,          NULL,       1 << 4,       False,       -1 },
+  { "libreoffice-writer",      NULL,          NULL,       1 << 4,       False,       -1 },
+  { "Gimp",                    NULL,          NULL,       1 << 5,       True,        -1 },
+  { "feh",                     NULL,          NULL,       1 << 5,       True,        -1 },
+  { "Vlc",                     NULL,          NULL,       1 << 6,       False,       -1 },
+  { "VirtualBox",              NULL,          NULL,       1 << 6,       False,       -1 },
 };
 
 /* layout(s) */
@@ -30,9 +43,9 @@ static const Bool resizehints = True; /* True means respect size hints in tiled 
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
+	{ "\uE020 \uE009 \uE020",      tile },    /* first entry is default */
+	{ "\uE020 \uE00A \uE020",      NULL },    /* no layout function means floating behavior */
+	{ "\uE020 \uE00B \uE020",      monocle },
 };
 
 /* key definitions */

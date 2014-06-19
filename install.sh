@@ -7,7 +7,4 @@ reposdir="$(dirname "$0")"
 cd $reposdir
 confdir=`pwd`
 
-mkdir -p ~/.fonts
-cp $confdir/xbmicons.pcf ~/.fonts
-
 makepkg -efi
