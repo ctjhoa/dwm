@@ -15,11 +15,13 @@ depends=('libx11' 'libxinerama')
 install=dwm.install
 source=(http://dl.suckless.org/dwm/dwm-$pkgver.tar.gz
 	config.h
-	dwm.desktop)
+	dwm.desktop
+	shiftview.c)
 
 build() {
   cd $srcdir/$pkgname-$pkgver
   cp $srcdir/config.h config.h
+  cp $srcdir/shiftview.c shiftview.c
   sed -i 's/CPPFLAGS =/CPPFLAGS +=/g' config.mk
   sed -i 's/^CFLAGS = -g/#CFLAGS += -g/g' config.mk
   sed -i 's/^#CFLAGS = -std/CFLAGS += -std/g' config.mk
@@ -36,5 +38,6 @@ package() {
   install -m644 -D $srcdir/dwm.desktop $pkgdir/usr/share/xsessions/dwm.desktop
 }
 md5sums=('8bb00d4142259beb11e13473b81c0857'
-         '85a793914dee5e26c876f3f86926ddc3'
-         '939f403a71b6e85261d09fc3412269ee')
+         '3399ce20018f5fdf189caf3a44f7562a'
+         '939f403a71b6e85261d09fc3412269ee'
+         '3e003bbd4448b127af639b12d83b9c94')
