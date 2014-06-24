@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Find relative path to the repository directory
 reposdir="$(dirname "$0")"
@@ -7,4 +7,4 @@ reposdir="$(dirname "$0")"
 cd $reposdir
 confdir=`pwd`
 
-makepkg -efi
+makepkg -fi --noconfirm

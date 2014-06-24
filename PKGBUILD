@@ -16,9 +16,6 @@ install=dwm.install
 source=(http://dl.suckless.org/dwm/dwm-$pkgver.tar.gz
 	config.h
 	dwm.desktop)
-md5sums=('8bb00d4142259beb11e13473b81c0857'
-         '2453e037f46449774ec8afab49b4f1a2'
-         '939f403a71b6e85261d09fc3412269ee')
 
 build() {
   cd $srcdir/$pkgname-$pkgver
@@ -39,8 +36,5 @@ package() {
   install -m644 -D $srcdir/dwm.desktop $pkgdir/usr/share/xsessions/dwm.desktop
 }
 md5sums=('8bb00d4142259beb11e13473b81c0857'
-         '33fe2c9d2ed7a520e6aed1efe42d9bd8'
-         '939f403a71b6e85261d09fc3412269ee')
-md5sums=('8bb00d4142259beb11e13473b81c0857'
-         '5cbb5322674cceef24fc56ddd94118be'
+         '85a793914dee5e26c876f3f86926ddc3'
          '939f403a71b6e85261d09fc3412269ee')
