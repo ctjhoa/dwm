@@ -4,13 +4,14 @@
 static const char font[] = "-*-xbmicons-medium-r-*-*-12-*-*-*-*-*-*-*" ","
                            "-*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*";
 static const char normbordercolor[] = "#444444";
-static const char normbgcolor[]     = "#222222";
-static const char normfgcolor[]     = "#bbbbbb";
-static const char selbordercolor[]  = "#005577";
-static const char selbgcolor[]      = "#005577";
-static const char selfgcolor[]      = "#eeeeee";
+static const char normbgcolor[]     = "#262626";
+static const char normfgcolor[]     = "#a6a6a6";
+static const char selbordercolor[]  = "#355D80";
+static const char selbgcolor[]      = "#355D80";
+static const char selfgcolor[]      = "#d3d3d3";
+
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
-static const unsigned int snap      = 8;       /* snap pixel */
+static const unsigned int snap      = 32;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = True;     /* False means bottom bar */
 
@@ -30,8 +31,8 @@ static const Rule rules[] = {
   { "libreoffice-impress",     NULL,          NULL,       1 << 4,       False,       -1 },
   { "libreoffice-startcenter", NULL,          NULL,       1 << 4,       False,       -1 },
   { "libreoffice-writer",      NULL,          NULL,       1 << 4,       False,       -1 },
-  { "Gimp",                    NULL,          NULL,       1 << 5,       True,        -1 },
-  { "feh",                     NULL,          NULL,       1 << 5,       True,        -1 },
+  { "Gimp",                    NULL,          NULL,       1 << 5,       False,        -1 },
+  { "feh",                     NULL,          NULL,       1 << 5,       False,        -1 },
   { "Vlc",                     NULL,          NULL,       1 << 6,       False,       -1 },
   { "VirtualBox",              NULL,          NULL,       1 << 6,       False,       -1 },
 };
@@ -39,7 +40,7 @@ static const Rule rules[] = {
 /* layout(s) */
 static const float mfact      = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster      = 1;    /* number of clients in master area */
-static const Bool resizehints = True; /* True means respect size hints in tiled resizals */
+static const Bool resizehints = False; /* True means respect size hints in tiled resizals */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
