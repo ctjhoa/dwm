@@ -21,7 +21,7 @@ static const char *tags[] = { "\uE002", "\uE000", "\uE003", "\uE001", "\uE005",
 
 static const Rule rules[] = {
   /* class                     instance    title       tags mask     isfloating   monitor */
-  { "st",                      NULL,          NULL,            0,       False,       -1 },
+  { "st-256color",             NULL,          NULL,            0,       False,       -1 },
   { "URxvt",                   NULL,          NULL,            0,       False,       -1 },
   { "Firefox",                 NULL,          NULL,       1 << 1,       False,       -1 },
   { "Chromium",                NULL,          NULL,       1 << 1,       False,       -1 },
