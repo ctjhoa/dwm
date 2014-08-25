@@ -8,7 +8,7 @@ static const char normbordercolor[] = "#444444";
 static const char normbgcolor[]     = "#1C1C24";
 static const char normfgcolor[]     = "#98ABAB";
 static const char selbordercolor[]  = "#56707e";
-static const char selbgcolor[]      = "#34344A";
+static const char selbgcolor[]      = "#3c435b";
 static const char selfgcolor[]      = "#AFC2C2";
 
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
