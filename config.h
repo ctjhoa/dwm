@@ -66,6 +66,8 @@ static const Layout layouts[] = {
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]  = { "st", "-e", "tmux", NULL };
 static const char *lockcmd[]  = { "slock", NULL };
+static const char *xkbmapuscmd[]  = { "setxkbmap", "us", NULL };
+static const char *xkbmapusintlcmd[]  = { "setxkbmap", "us", "-variant", "intl", NULL };
 
 #include "shiftview.c"
 
@@ -74,6 +76,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = lockcmd } },
+	{ MODKEY|ShiftMask,             XK_1,      spawn,          {.v = xkbmapusintlcmd } },
+	{ MODKEY|ShiftMask,             XK_0,      spawn,          {.v = xkbmapuscmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -91,10 +95,14 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
+	{ MODKEY,                       XK_agrave, view,           {.ui = ~0 } },
+	{ MODKEY|ShiftMask,             XK_agrave, tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
+	{ MODKEY,                       XK_semicolon, focusmon,    {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_semicolon, tagmon,      {.i = +1 } },
 	{ MODKEY,                       XK_Left,   shiftview,      {.i = -1 } },
 	{ MODKEY,                       XK_Right,  shiftview,      {.i = +1 } },
 	TAGKEYS(                        XK_1,                      0)
@@ -106,6 +114,15 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
+	TAGKEYS(                        XK_ampersand,                     0)
+	TAGKEYS(                        XK_eacute,                        1)
+	TAGKEYS(                        XK_quotedbl,                      2)
+	TAGKEYS(                        XK_apostrophe,                    3)
+	TAGKEYS(                        XK_parenleft,                     4)
+	TAGKEYS(                        XK_minus,                         5)
+	TAGKEYS(                        XK_egrave,                        6)
+	TAGKEYS(                        XK_underscore,                    7)
+	TAGKEYS(                        XK_ccedilla,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 };
 
