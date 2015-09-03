@@ -66,8 +66,6 @@ static const Layout layouts[] = {
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]  = { "st", "-e", "tmux", NULL };
 static const char *lockcmd[]  = { "slock", NULL };
-static const char *xkbmapuscmd[]  = { "setxkbmap", "us", NULL };
-static const char *xkbmapusintlcmd[]  = { "setxkbmap", "us", "-variant", "intl", NULL };
 
 #include "shiftview.c"
 
@@ -76,8 +74,6 @@ static Key keys[] = {
 	{ MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = lockcmd } },
-	{ MODKEY|ShiftMask,             XK_1,      spawn,          {.v = xkbmapusintlcmd } },
-	{ MODKEY|ShiftMask,             XK_0,      spawn,          {.v = xkbmapuscmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
