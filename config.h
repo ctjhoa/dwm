@@ -1,9 +1,11 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const char font[] = "-*-xbmicons-medium-r-*-*-12-*-*-*-*-*-*-*" ","
-                           "-*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*";
-			   //"-*-cure-medium-*-*-12-*-*-*-*-*-*-*-*";
+static const char *fonts[] = {
+	"xbmicons:size=10",
+	"terminus:size=8"
+};
+static const char dmenufont[]       = "terminus:size=8";
 static const char normbordercolor[] = "#444444";
 static const char normbgcolor[]     = "#1C1C24";
 static const char normfgcolor[]     = "#98ABAB";
@@ -13,36 +15,40 @@ static const char selfgcolor[]      = "#AFC2C2";
 
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
-static const Bool showbar           = True;     /* False means no bar */
-static const Bool topbar            = True;     /* False means bottom bar */
+static const int showbar            = 1;        /* 0 means no bar */
+static const int topbar             = 1;        /* 0 means bottom bar */
 
 /* tagging */
 static const char *tags[] = { "\uE002", "\uE000", "\uE003", "\uE001", "\uE005",
 	                      "\uE004", "\uE008", "\uE006", "\uE007 " };
 
 static const Rule rules[] = {
-  /* class                     instance    title       tags mask     isfloating   monitor */
-  { "st-256color",             NULL,          NULL,            0,       False,       -1 },
-  { "URxvt",                   NULL,          NULL,            0,       False,       -1 },
-  { "Firefox",                 NULL,          NULL,       1 << 1,       False,       -1 },
-  { "Chromium",                NULL,          NULL,       1 << 1,       False,       -1 },
-  { "Emacs",                   NULL,          NULL,       1 << 2,       False,       -1 },
-  { "Eclipse",                 NULL,          NULL,       1 << 2,       False,       -1 },
-  { "jetbrains-idea-ce",       NULL,          NULL,       1 << 2,       False,       -1 },
-  { "libreoffice-calc",        NULL,          NULL,       1 << 4,       False,       -1 },
-  { "libreoffice-impress",     NULL,          NULL,       1 << 4,       False,       -1 },
-  { "libreoffice-startcenter", NULL,          NULL,       1 << 4,       False,       -1 },
-  { "libreoffice-writer",      NULL,          NULL,       1 << 4,       False,       -1 },
-  { "Gimp",                    NULL,          NULL,       1 << 5,       False,       -1 },
-  { "feh",                     NULL,          NULL,       1 << 5,       False,       -1 },
-  { "Vlc",                     NULL,          NULL,       1 << 6,       False,       -1 },
-  { "VirtualBox",              NULL,          NULL,       1 << 6,       False,       -1 },
+	/* xprop(1):
+	 *	WM_CLASS(STRING) = instance, class
+	 *	WM_NAME(STRING) = title
+	 */
+	/* class                    instance    title       tags mask      isfloating   monitor */
+	{ "st-256color",             NULL,       NULL,       0,            0,           -1 },
+	{ "URxvt",                   NULL,       NULL,       0,            0,           -1 },
+	{ "Firefox",                 NULL,       NULL,       1 << 1,       0,           -1 },
+	{ "Chromium",                NULL,       NULL,       1 << 1,       0,           -1 },
+	{ "Emacs",                   NULL,       NULL,       1 << 2,       0,           -1 },
+	{ "Eclipse",                 NULL,       NULL,       1 << 2,       0,           -1 },
+	{ "jetbrains-idea-ce",       NULL,       NULL,       1 << 2,       0,           -1 },
+	{ "libreoffice-calc",        NULL,       NULL,       1 << 4,       0,           -1 },
+	{ "libreoffice-impress",     NULL,       NULL,       1 << 4,       0,           -1 },
+	{ "libreoffice-startcenter", NULL,       NULL,       1 << 4,       0,           -1 },
+	{ "libreoffice-writer",      NULL,       NULL,       1 << 4,       0,           -1 },
+	{ "Gimp",                    NULL,       NULL,       1 << 5,       0,           -1 },
+	{ "feh",                     NULL,       NULL,       1 << 5,       0,           -1 },
+	{ "Vlc",                     NULL,       NULL,       1 << 6,       0,           -1 },
+	{ "VirtualBox",              NULL,       NULL,       1 << 6,       0,           -1 },
 };
 
 /* layout(s) */
-static const float mfact      = 0.55; /* factor of master area size [0.05..0.95] */
-static const int nmaster      = 1;    /* number of clients in master area */
-static const Bool resizehints = False; /* True means respect size hints in tiled resizals */
+static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
+static const int nmaster     = 1;    /* number of clients in master area */
+static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -63,7 +69,8 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
+static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]  = { "st", "-e", "tmux", NULL };
 static const char *lockcmd[]  = { "slock", NULL };
 
