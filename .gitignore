@@ -1,4 +1,4 @@
-dwm-6.1-1-x86_64.pkg.tar.xz
-dwm-6.1.tar.gz
+*.pkg.tar.xz
+*.tar.gz
 pkg/
 src/
