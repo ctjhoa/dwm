@@ -18,7 +18,7 @@ source=(http://dl.suckless.org/dwm/dwm-$pkgver.tar.gz
 	dwm.desktop
 	shiftview.c)
 md5sums=('f0b6b1093b7207f89c2a90b848c008ec'
-         'e692e4cb8cb77b9325f76a2213ec541b'
+         '6878691d5f1f70277662395d7bb2d2ec'
          '939f403a71b6e85261d09fc3412269ee'
          '3e003bbd4448b127af639b12d83b9c94')
 

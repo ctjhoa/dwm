@@ -2,10 +2,9 @@
 
 /* appearance */
 static const char *fonts[] = {
-	"xbmicons:size=10",
-	"terminus:size=8"
+	"DejaVuSansMono:size=6"
 };
-static const char dmenufont[]       = "terminus:size=8";
+static const char dmenufont[]       = "DejaVuSansMono:size=6";
 static const char normbordercolor[] = "#444444";
 static const char normbgcolor[]     = "#1C1C24";
 static const char normfgcolor[]     = "#98ABAB";
@@ -14,13 +13,12 @@ static const char selbgcolor[]      = "#3c435b";
 static const char selfgcolor[]      = "#AFC2C2";
 
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
-static const unsigned int snap      = 32;       /* snap pixel */
+static const unsigned int snap      = 20;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 
 /* tagging */
-static const char *tags[] = { "\uE002", "\uE000", "\uE003", "\uE001", "\uE005",
-	                      "\uE004", "\uE008", "\uE006", "\uE007 " };
+static const char *tags[] = { "term", "www", "dev", "chat", "media", "doc", "misc" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -35,14 +33,15 @@ static const Rule rules[] = {
 	{ "Emacs",                   NULL,       NULL,       1 << 2,       0,           -1 },
 	{ "Eclipse",                 NULL,       NULL,       1 << 2,       0,           -1 },
 	{ "jetbrains-idea-ce",       NULL,       NULL,       1 << 2,       0,           -1 },
-	{ "libreoffice-calc",        NULL,       NULL,       1 << 4,       0,           -1 },
-	{ "libreoffice-impress",     NULL,       NULL,       1 << 4,       0,           -1 },
-	{ "libreoffice-startcenter", NULL,       NULL,       1 << 4,       0,           -1 },
-	{ "libreoffice-writer",      NULL,       NULL,       1 << 4,       0,           -1 },
-	{ "Gimp",                    NULL,       NULL,       1 << 5,       0,           -1 },
-	{ "feh",                     NULL,       NULL,       1 << 5,       0,           -1 },
-	{ "Vlc",                     NULL,       NULL,       1 << 6,       0,           -1 },
-	{ "VirtualBox",              NULL,       NULL,       1 << 6,       0,           -1 },
+	{ "Gimp",                    NULL,       NULL,       1 << 4,       0,           -1 },
+	{ "feh",                     NULL,       NULL,       1 << 4,       0,           -1 },
+	{ "Vlc",                     NULL,       NULL,       1 << 4,       0,           -1 },
+	{ "mpv",                     NULL,       NULL,       1 << 4,       0,           -1 },
+	{ "VirtualBox",              NULL,       NULL,       1 << 4,       0,           -1 },
+	{ "libreoffice-calc",        NULL,       NULL,       1 << 5,       0,           -1 },
+	{ "libreoffice-impress",     NULL,       NULL,       1 << 5,       0,           -1 },
+	{ "libreoffice-startcenter", NULL,       NULL,       1 << 5,       0,           -1 },
+	{ "libreoffice-writer",      NULL,       NULL,       1 << 5,       0,           -1 },
 };
 
 /* layout(s) */
@@ -52,9 +51,9 @@ static const int resizehints = 0;    /* 1 means respect size hints in tiled resi
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "\uE020 \uE009 \uE020",      tile },    /* first entry is default */
-	{ "\uE020 \uE00A \uE020",      NULL },    /* no layout function means floating behavior */
-	{ "\uE020 \uE00B \uE020",      monocle },
+	{ "[T]",      tile },    /* first entry is default */
+	{ "[F]",      NULL },    /* no layout function means floating behavior */
+	{ "[M]",      monocle },
 };
 
 /* key definitions */
