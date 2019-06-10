@@ -1,9 +1,11 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const char *fonts[] = {
-	"DejaVuSansMono:size=6"
-};
+static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int snap      = 32;       /* snap pixel */
+static const int showbar            = 1;        /* 0 means no bar */
+static const int topbar             = 1;        /* 0 means bottom bar */
+static const char *fonts[]          = { "DejaVuSansMono:size=6" };
 static const char dmenufont[]       = "DejaVuSansMono:size=6";
 static const char normbordercolor[] = "#444444";
 static const char normbgcolor[]     = "#1C1C24";
@@ -11,11 +13,11 @@ static const char normfgcolor[]     = "#98ABAB";
 static const char selbordercolor[]  = "#56707e";
 static const char selbgcolor[]      = "#3c435b";
 static const char selfgcolor[]      = "#AFC2C2";
-
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
-static const unsigned int snap      = 20;       /* snap pixel */
-static const int showbar            = 1;        /* 0 means no bar */
-static const int topbar             = 1;        /* 0 means bottom bar */
+static const char *colors[][3]      = {
+	/*               fg         bg         border   */
+	[SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
+	[SchemeSel]  = { selfgcolor, selbgcolor,  selbordercolor  },
+};
 
 /* tagging */
 static const char *tags[] = { "term", "www", "dev", "chat", "media", "doc", "misc" };
@@ -129,7 +131,7 @@ static Key keys[] = {
 };
 
 /* button definitions */
-/* click can be ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
+/* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
 static Button buttons[] = {
 	/* click                event mask      button          function        argument */
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
