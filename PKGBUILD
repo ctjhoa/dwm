@@ -18,7 +18,7 @@ source=(dwm.desktop
 	shiftview.c)
 md5sums=('939f403a71b6e85261d09fc3412269ee'
          'ed3aa40b97e29dbbe7d7d3f296bc2fcc'
-         '8ec6cd4a49890e4ce9450a12742e53d3'
+         '8b86d6f2ac4408e22ab583677eb83dd6'
          '3e003bbd4448b127af639b12d83b9c94')
 
 prepare() {
