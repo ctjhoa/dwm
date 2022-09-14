@@ -1,25 +1,24 @@
-# $Id$
 # Maintainer: Sergej Pupykin <pupykin.s+arch@gmail.com>
 # Contributor: Dag Odenhall <dag.odenhall@gmail.com>
 # Contributor: Grigorios Bouzakis <grbzks@gmail.com>
 
 pkgname=dwm
-pkgver=6.2
+pkgver=6.3
 pkgrel=1
 pkgdesc="A dynamic window manager for X"
-url="http://dwm.suckless.org"
+url="https://dwm.suckless.org"
 arch=('i686' 'x86_64')
 license=('MIT')
 options=(zipman)
 depends=('libx11' 'libxinerama' 'libxft' 'freetype2' 'st' 'dmenu')
 install=dwm.install
-source=(http://dl.suckless.org/dwm/dwm-$pkgver.tar.gz
+source=(dwm.desktop
+        https://dl.suckless.org/dwm/dwm-$pkgver.tar.gz
 	config.h
-	dwm.desktop
 	shiftview.c)
-md5sums=('9929845ccdec4d2cc191f16210dd7f3d'
-         'f44b1281ca20775597440e8f1a341082'
-         '939f403a71b6e85261d09fc3412269ee'
+md5sums=('939f403a71b6e85261d09fc3412269ee'
+         'ed3aa40b97e29dbbe7d7d3f296bc2fcc'
+         '8ec6cd4a49890e4ce9450a12742e53d3'
          '3e003bbd4448b127af639b12d83b9c94')
 
 prepare() {
@@ -36,7 +35,7 @@ build() {
 package() {
   cd "$srcdir/$pkgname-$pkgver"
   make PREFIX=/usr DESTDIR="$pkgdir" install
-  install -m644 -D LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
-  install -m644 -D README "$pkgdir/usr/share/doc/$pkgname/README"
-  install -m644 -D "$srcdir/dwm.desktop" "$pkgdir/usr/share/xsessions/dwm.desktop"
+  install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+  install -Dm644 README "$pkgdir/usr/share/doc/$pkgname/README"
+  install -Dm644 "$srcdir/dwm.desktop" "$pkgdir/usr/share/xsessions/dwm.desktop"
 }
