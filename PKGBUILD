@@ -1,30 +1,35 @@
-# Maintainer: Sergej Pupykin <pupykin.s+arch@gmail.com>
+# Maintainer: Neptune <neptune650@proton.me>
+# Contributor: Sergej Pupykin <pupykin.s+arch@gmail.com>
 # Contributor: Dag Odenhall <dag.odenhall@gmail.com>
 # Contributor: Grigorios Bouzakis <grbzks@gmail.com>
 
 pkgname=dwm
-pkgver=6.3
-pkgrel=1
+pkgver=6.4
+pkgrel=2
 pkgdesc="A dynamic window manager for X"
 url="https://dwm.suckless.org"
-arch=('i686' 'x86_64')
+arch=('i686' 'x86_64' 'arm' 'armv7h' 'armv6h' 'aarch64')
 license=('MIT')
 options=(zipman)
-depends=('libx11' 'libxinerama' 'libxft' 'freetype2' 'st' 'dmenu')
+depends=('libx11' 'libxinerama' 'libxft' 'freetype2')
 install=dwm.install
 source=(dwm.desktop
         https://dl.suckless.org/dwm/dwm-$pkgver.tar.gz
 	config.h
 	shiftview.c)
 md5sums=('939f403a71b6e85261d09fc3412269ee'
-         'ed3aa40b97e29dbbe7d7d3f296bc2fcc'
+         '008da068c3884ae675f65b9458b43c02'
          '8b86d6f2ac4408e22ab583677eb83dd6'
          '3e003bbd4448b127af639b12d83b9c94')
 
 prepare() {
   cd "$srcdir/$pkgname-$pkgver"
-  cp "$srcdir/config.h" config.h
-  cp "$srcdir/shiftview.c" shiftview.c
+  if [[ -f "$srcdir/config.h" ]]; then
+    cp -fv "$srcdir/config.h" config.h
+  fi
+  if [[ -f "$srcdir/shiftview.c" ]]; then
+    cp -fv "$srcdir/shiftview.c" shiftview.c
+  fi
 }
 
 build() {
